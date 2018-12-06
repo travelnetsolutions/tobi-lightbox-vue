@@ -10,6 +10,12 @@
     "test:unit:watch": "vue-cli-service test:unit --watchAll",
     "build-bundle": "vue-cli-service build --target lib --name tobi-lightbox-vue"
   },
+  "main": "./dist/tobi-lightbox-vue.common.js",
+  "module": "dist/tobi-lightbox-vue.esm.js",
+  "unpkg": "dist/tobi-lightbox-vue.min.js",
+  "browser": {
+    "./sfc": "src/components/index.ts"
+  },
   "dependencies": {
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
