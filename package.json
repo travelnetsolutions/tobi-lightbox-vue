@@ -1,5 +1,5 @@
 {
-  "name": "tobi-lightbox-vue",
+  "name": "@travelnetsolutions/tobi-lightbox-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,6 +16,13 @@
   "browser": {
     "./sfc": "src/components/index.ts"
   },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "dependencies": {
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
