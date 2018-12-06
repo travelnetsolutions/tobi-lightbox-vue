@@ -222,4 +222,229 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+$zoomIconBackground: $ral-blue;
+$zoomIconColor: #fff;
+
+$overlayBackground: rgba(0, 0, 0, 0.8);
+
+$figcaptionBackground: rgba(0, 0, 0, 0.8);
+$figcaptionColor: #fff;
+
+$counterBackground: transparent;
+$counterColor: #fff;
+
+$buttonBackground: transparent;
+$buttonColor: #fff;
+
+$loaderColor: $ral-blue;
+
+$iframeHeight: 85vh;
+$iframeWidth: 85vw;
+
+.tobi-zoom {
+  border: 0;
+  box-shadow: none;
+  display: block;
+  position: relative;
+  text-decoration: none;
+
+  & img {
+    display: block;
+  }
+
+  &__icon {
+    align-items: center;
+    background-color: $zoomIconBackground;
+    bottom: 0;
+    color: $zoomIconColor;
+    display: flex;
+    justify-content: center;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+
+    & svg {
+      height: 1.111em;
+      padding-bottom: 0.222em;
+      padding-left: 0.222em;
+      padding-right: 0.222em;
+      padding-top: 0.222em;
+      pointer-events: none;
+      width: 1.111em;
+    }
+  }
+}
+
+/* Hide scrollbar if lightbox is displayed */
+.tobi-is-open {
+  overflow-y: hidden;
+}
+
+/* Lightbox */
+.tobi {
+  bottom: 0;
+  box-sizing: border-box;
+  contain: strict;
+  font-size: 18px;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1337;
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  & *,
+  & *::before,
+  & *::after {
+    box-sizing: inherit;
+  }
+}
+
+/* Overlay */
+.tobi__overlay {
+  background-color: $overlayBackground;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+/* Slider */
+.tobi__slider {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: transform;
+}
+.tobi button {
+  align-items: center;
+  appearance: none;
+  background-color: $buttonBackground;
+  border: 0.056em solid transparent;
+  color: $buttonColor;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  opacity: 0.5;
+  padding-top: 0.222em;
+  padding-left: 0.222em;
+  padding-right: 0.222em;
+  padding-bottom: 0.222em;
+  position: absolute;
+  transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity;
+
+  & svg {
+    pointer-events: none;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: opacity;
+  }
+
+  &.tobi__prev,
+  &.tobi__next {
+    top: 50%;
+    top: calc(50% - (4em / 2));
+
+    & svg {
+      height: 4em;
+      width: 4em;
+    }
+  }
+
+  &.tobi__prev {
+    left: 0;
+  }
+
+  &.tobi__next {
+    right: 0;
+  }
+
+  &.tobi__close {
+    right: 1em;
+    top: 1em;
+
+    & svg {
+      height: 2em;
+      width: 2em;
+    }
+  }
+
+  &:disabled,
+  &[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* Counter */
+.tobi__counter {
+  align-items: center;
+  background-color: $counterBackground;
+  color: $counterColor;
+  display: flex;
+  font-size: 1.111em;
+  height: 2em;
+  justify-content: center;
+  left: 1em;
+  position: absolute;
+  top: 1em;
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* Loader */
+.tobi-loader {
+  display: inline-block;
+  height: 5em;
+  left: 50%;
+  margin-left: -2.5em;
+  margin-top: -2.5em;
+  position: absolute;
+  top: 50%;
+  width: 5em;
+
+  &::before {
+    animation: spin 1s infinite;
+    border-radius: 100%;
+    border: 0.5em solid #f2f2f2;
+    border-top-color: $loaderColor;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    will-change: transform;
+    z-index: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>

@@ -50,4 +50,59 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang='scss' scoped></style>
+<style lang='scss' scoped>
+.tobi__slider__slide {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  & .tobi__slider__slide__content {
+    max-height: 85vh;
+    max-width: 85vw;
+  }
+
+  & figure {
+    margin: 0;
+    max-width: 100%;
+    position: relative;
+  }
+
+  & img {
+    display: block;
+    height: auto;
+    max-height: 85vh;
+    max-width: 85vw;
+    width: auto;
+  }
+
+  & iframe {
+    height: $iframeHeight;
+    width: $iframeWidth;
+  }
+
+  & video {
+    max-height: 85vh;
+    max-width: 85vw;
+  }
+
+  & figcaption {
+    // background-color: $figcaptionBackground;
+    bottom: -5vh;
+    color: $figcaptionColor;
+    text-align: center;
+    display: block;
+    left: 0;
+    padding-bottom: 0.222em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.222em;
+    position: absolute;
+    white-space: pre-wrap;
+    width: 100%;
+
+    font-size: $ral-navigation-font-size;
+  }
+}
+</style>
