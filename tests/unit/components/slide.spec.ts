@@ -1,5 +1,5 @@
-import { shallowMount, createWrapper } from '@vue/test-utils';
 import Slide from '@/components/slide.vue';
+import { createWrapper, shallowMount } from '@vue/test-utils';
 import { gallery } from './fixtures/galleryFixture';
 
 describe('Lightbox.vue', () => {
@@ -8,7 +8,7 @@ describe('Lightbox.vue', () => {
 
   const build = () => {
     const wrapper = shallowMount(Slide, {
-      propsData: props
+      propsData: props,
     });
     return {
       wrapper,
@@ -57,7 +57,7 @@ describe('Lightbox.vue', () => {
       currentIndex: 0,
     });
     wrapper.setProps({
-      currentIndex: 5
+      currentIndex: 5,
     });
     expect(img().attributes('src')).toBe(image.imgsrc);
   });

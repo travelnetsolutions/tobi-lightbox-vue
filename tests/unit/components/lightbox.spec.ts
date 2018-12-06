@@ -1,6 +1,6 @@
-import { shallowMount } from '@vue/test-utils';
 import Lightbox from '@/components/lightbox.vue';
 import Slide from '@/components/slide.vue';
+import { shallowMount } from '@vue/test-utils';
 import { gallery } from './fixtures/galleryFixture';
 
 describe('Lightbox.vue', () => {
@@ -9,13 +9,13 @@ describe('Lightbox.vue', () => {
 
   const build = () => {
     const wrapper = shallowMount(Lightbox, {
-      propsData: props
+      propsData: props,
     });
     return {
       wrapper,
       slides: () => wrapper.findAll(Slide),
       firstSlide: () => wrapper.find(Slide),
-      anySlide: () => wrapper.find(Slide)
+      anySlide: () => wrapper.find(Slide),
     };
   };
 

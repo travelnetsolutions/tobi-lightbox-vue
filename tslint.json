@@ -1,4 +1,12 @@
 {
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
   "rules": {
     "class-name": true,
     "comment-format": [
@@ -54,6 +62,8 @@
     "no-trailing-whitespace": false,
     "no-null-keyword": true,
     "prefer-const": true,
-    "jsdoc-format": true
+    "jsdoc-format": true,
+    "max-line-length": false,
+    "object-literal-sort-keys": false
   }
 }
