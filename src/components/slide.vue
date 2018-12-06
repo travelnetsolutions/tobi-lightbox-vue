@@ -1,5 +1,5 @@
 <template>
-  <div class="tobi__slider__s;lide" @click.self="toggle()" :style="{left: index * 100 + '%'}">
+  <div class="tobi__slider__slide" @click.self="toggle()" :style="{left: index * 100 + '%'}">
     <div class="tobi__slider__slide__content">
       <figure>
         <img :src="source" :alt="description">

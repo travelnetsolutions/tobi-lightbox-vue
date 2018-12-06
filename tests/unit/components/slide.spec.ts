@@ -37,6 +37,7 @@ describe('Lightbox.vue', () => {
       currentIndex: 0,
     });
     expect(img().attributes('src')).toBeFalsy();
+    expect(wrapper.vm.$data.imageHasLoaded).toBe(false);
   });
   it('renders the image if the current index is within 1 of the index', () => {
     const { wrapper, img } = build();
@@ -47,6 +48,7 @@ describe('Lightbox.vue', () => {
       currentIndex: 0,
     });
     expect(img().attributes('src')).toBe(image.imgsrc);
+    expect(wrapper.vm.$data.imageHasLoaded).toBe(true);
   });
   it('renders the image if it has rendered before', () => {
     const { wrapper, img } = build();
@@ -56,6 +58,7 @@ describe('Lightbox.vue', () => {
       index: 1,
       currentIndex: 0,
     });
+    expect(wrapper.vm.$data.imageHasLoaded).toBe(true);
     wrapper.setProps({
       currentIndex: 5,
     });
