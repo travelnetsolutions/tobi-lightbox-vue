@@ -1,31 +1,5 @@
-# tobi-lightbox-vue
+WARNING: This package is still in initial development and is currently only intended for use in TravelNet projects as the api around this component will likely change often and without notice
 
-## Project setup
-```
-npm install
-```
+We will be working on getting this component to a place where it is ready for wider use
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
+Please star the project on Github to subscribe for updates
