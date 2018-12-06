@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Lightbox.vue renders the component 1`] = `
+<div class="tobi__slider__slide">
+  <div class="tobi__slider__slide__content">
+    <figure><img></figure>
+  </div>
+</div>
+`;
