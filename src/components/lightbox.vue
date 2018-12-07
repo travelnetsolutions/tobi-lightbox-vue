@@ -98,7 +98,7 @@ export default Vue.extend({
     backgroundImage(image: string) {
       return 'url("' + image + '")';
     },
-    resizeListener: throttle(function(this: any) {
+    resizeListener: throttle(function (this: any) {
       this.updateOffset();
     }, 250),
     keydownHandler(event: KeyboardEvent) {
@@ -222,7 +222,7 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $zoomIconColor: #fff;
 
 $overlayBackground: rgba(0, 0, 0, 0.8);

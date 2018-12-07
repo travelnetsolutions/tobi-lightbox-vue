@@ -50,7 +50,7 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang='scss' scoped>
+<style lang='scss'>
 $zoomIconColor: #fff;
 
 $overlayBackground: rgba(0, 0, 0, 0.8);
