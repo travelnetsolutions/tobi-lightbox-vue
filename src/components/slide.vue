@@ -51,6 +51,21 @@ export default Vue.extend({
 });
 </script>
 <style lang='scss' scoped>
+$zoomIconColor: #fff;
+
+$overlayBackground: rgba(0, 0, 0, 0.8);
+
+$figcaptionBackground: rgba(0, 0, 0, 0.8);
+$figcaptionColor: #fff;
+
+$counterBackground: transparent;
+$counterColor: #fff;
+
+$buttonBackground: transparent;
+$buttonColor: #fff;
+
+$iframeHeight: 85vh;
+$iframeWidth: 85vw;
 .tobi__slider__slide {
   align-items: center;
   display: flex;
@@ -101,8 +116,6 @@ export default Vue.extend({
     position: absolute;
     white-space: pre-wrap;
     width: 100%;
-
-    font-size: $ral-navigation-font-size;
   }
 }
 </style>

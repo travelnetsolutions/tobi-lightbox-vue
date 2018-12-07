@@ -223,7 +223,6 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss" scoped>
-$zoomIconBackground: $ral-blue;
 $zoomIconColor: #fff;
 
 $overlayBackground: rgba(0, 0, 0, 0.8);
@@ -237,44 +236,10 @@ $counterColor: #fff;
 $buttonBackground: transparent;
 $buttonColor: #fff;
 
-$loaderColor: $ral-blue;
+$loaderColor: blue;
 
 $iframeHeight: 85vh;
 $iframeWidth: 85vw;
-
-.tobi-zoom {
-  border: 0;
-  box-shadow: none;
-  display: block;
-  position: relative;
-  text-decoration: none;
-
-  & img {
-    display: block;
-  }
-
-  &__icon {
-    align-items: center;
-    background-color: $zoomIconBackground;
-    bottom: 0;
-    color: $zoomIconColor;
-    display: flex;
-    justify-content: center;
-    line-height: 1;
-    position: absolute;
-    right: 0;
-
-    & svg {
-      height: 1.111em;
-      padding-bottom: 0.222em;
-      padding-left: 0.222em;
-      padding-right: 0.222em;
-      padding-top: 0.222em;
-      pointer-events: none;
-      width: 1.111em;
-    }
-  }
-}
 
 /* Hide scrollbar if lightbox is displayed */
 .tobi-is-open {
