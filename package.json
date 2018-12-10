@@ -9,7 +9,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:unit:watch": "vue-cli-service test:unit --watchAll",
     "build-bundle": "vue-cli-service build --target lib --name tobi-lightbox-vue src/components/index.ts",
-    "publish:public": "npm publish --access public"
+    "release": "npm run build-bundle && npm publish --access public"
   },
   "main": "./dist/tobi-lightbox-vue.common.js",
   "module": "dist/tobi-lightbox-vue.esm.js",
