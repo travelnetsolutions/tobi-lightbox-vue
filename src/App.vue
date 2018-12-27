@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <img alt="Vue logo">
+    <button @click="toggleLightbox">toggle</button>
     <lightbox v-model="showLightbox" :images="images"/>
     <!-- <p>Something worked!!</p> -->
   </div>
 </template>
 
-<script lang="ts">
+<script>
 // import Vue from 'vue';
 import { gallery } from '@/gallery.ts';
 import Lightbox from './components/lightbox.vue';
@@ -16,8 +16,13 @@ export default {
   },
   data: () => ({
     images: gallery,
-    showLightbox: true,
+    showLightbox: false,
   }),
+  methods: {
+    toggleLightbox() {
+      this.showLightbox = !this.showLightbox;
+    },
+  },
 };
 </script>
 

@@ -7,15 +7,14 @@
     </div>
   </div>
 </template>
-<script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({
+<script>
+export default {
   data: () => ({
     imageHasLoaded: false,
   }),
   props: ['image', 'currentIndex', 'index'],
   computed: {
-    source(): string {
+    source() {
       if (!this.imageHasLoaded) {
         if (
           this.currentIndex + 1 >= this.index &&
@@ -28,7 +27,7 @@ export default Vue.extend({
       }
       return '';
     },
-    description(): string {
+    description() {
       if (!this.imageHasLoaded) {
         if (
           this.currentIndex + 1 >= this.index &&
@@ -48,7 +47,7 @@ export default Vue.extend({
       this.$emit('toggle');
     },
   },
-});
+};
 </script>
 <style lang='scss'>
 $zoomIconColor: #fff;

@@ -1,6 +1,6 @@
 {
   "name": "@travelnetsolutions/tobi-lightbox-vue",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,7 +9,12 @@
     "test:unit": "vue-cli-service test:unit",
     "test:unit:watch": "vue-cli-service test:unit --watchAll",
     "build-bundle": "vue-cli-service build --target lib --name tobi-lightbox-vue src/components/index.ts",
-    "release": "npm run build-bundle && npm publish --access public"
+    "release": "npm run build-rollup && npm publish --access public",
+    "build-rollup": "npm run build:umd & npm run build:es & npm run build:unpkg & npm run build:cjs",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/tobi-lightbox-vue.umd.js",
+    "build:cjs": "rollup --config build/rollup.config.js --format cjs --file dist/tobi-lightbox-vue.common.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/tobi-lightbox-vue.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/tobi-lightbox-vue.min.js"
   },
   "main": "./dist/tobi-lightbox-vue.common.js",
   "module": "dist/tobi-lightbox-vue.esm.js",
@@ -28,7 +33,7 @@
     "rollup": "^0.67.4",
     "rollup-plugin-buble": "^0.19.4",
     "rollup-plugin-vue": "^4.3.2",
-    "vue": "^2.5.17",
+    "vue": "^2.5.21",
     "vue-class-component": "^6.0.0",
     "vue-property-decorator": "^7.0.0"
   },
@@ -43,10 +48,11 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "node-sass": "^4.9.0",
+    "rollup-plugin-typescript": "^1.0.0",
     "sass-loader": "^7.0.1",
     "sinon": "^7.1.1",
     "ts-jest": "^23.0.0",
     "typescript": "^3.0.0",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.21"
   }
 }

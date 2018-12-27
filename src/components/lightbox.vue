@@ -2,7 +2,7 @@
   <div
     class="tobi"
     role="dialog"
-    :aria-hidden="!value"
+    :aria-hidden="notOpen"
     @touchstart="touchstartHandler"
     @touchmove="touchmoveHandler"
     @touchend="touchendHandler"
@@ -49,16 +49,19 @@
     <div class="tobi__counter">{{currentIndex + 1}}/{{images.length}}</div>
   </div>
 </template>
-<script lang="ts">
+<script>
 import { throttle } from 'lodash';
-import Vue from 'vue';
 import Slide from './slide.vue';
 
-export default Vue.extend({
+export default {
   components: {
     Slide,
   },
-  computed: {},
+  computed: {
+    notOpen() {
+      return !this.value;
+    },
+  },
   data() {
     return {
       resizeTicking: false,
@@ -95,13 +98,13 @@ export default Vue.extend({
     window.addEventListener('keydown', this.keydownHandler);
   },
   methods: {
-    backgroundImage(image: string) {
+    backgroundImage(image) {
       return 'url("' + image + '")';
     },
-    resizeListener: throttle(function(this: any) {
+    resizeListener: throttle(function () {
       this.updateOffset();
     }, 250),
-    keydownHandler(event: KeyboardEvent) {
+    keydownHandler(event) {
       if (event.keyCode === 27) {
         // `ESC` Key: Close the lightbox
         event.preventDefault();
@@ -116,7 +119,7 @@ export default Vue.extend({
         this.next();
       }
     },
-    touchstartHandler(event: TouchEvent) {
+    touchstartHandler(event) {
       event.stopPropagation();
 
       this.pointerDown = true;
@@ -124,7 +127,7 @@ export default Vue.extend({
       this.drag.startX = event.touches[0].pageX;
       this.drag.startY = event.touches[0].pageY;
     },
-    touchmoveHandler(event: TouchEvent) {
+    touchmoveHandler(event) {
       event.preventDefault();
       event.stopPropagation();
 
@@ -136,7 +139,7 @@ export default Vue.extend({
           this.offset - Math.round(this.drag.startX - this.drag.endX);
       }
     },
-    touchendHandler(event: TouchEvent) {
+    touchendHandler(event) {
       event.stopPropagation();
       this.pointerDown = false;
       if (this.drag.endX) {
@@ -144,7 +147,7 @@ export default Vue.extend({
       }
       this.clearDrag();
     },
-    mousedownHandler(event: MouseEvent) {
+    mousedownHandler(event) {
       event.preventDefault();
       event.stopPropagation();
 
@@ -152,7 +155,7 @@ export default Vue.extend({
       this.drag.startX = event.pageX;
       // slider.style.cursor = '-webkit-grabbing';
     },
-    mouseupHandler(event: MouseEvent) {
+    mouseupHandler(event) {
       event.stopPropagation();
 
       this.pointerDown = false;
@@ -162,7 +165,7 @@ export default Vue.extend({
 
       this.clearDrag();
     },
-    mousemoveHandler(event: MouseEvent) {
+    mousemoveHandler(event) {
       if (!this.pointerDown) { return; }
       event.preventDefault();
 
@@ -220,7 +223,7 @@ export default Vue.extend({
       this.updateOffset();
     },
   },
-});
+};
 </script>
 <style lang="scss">
 $zoomIconColor: #fff;
